@@ -20,16 +20,7 @@ abstract class Connector {
     protected void scan(Scanner scanner) throws MikrotikApiException {
         System.out.println("Please, insert a command you want to be executed!");
         while (!scanner.nextLine().equals("end")) {
-            String input = scanner.nextLine();
-            switch (input) {
-                case "log":
-                    input = "/log/print";
-                    break;
-                case "message":
-                    input = "/log/print where message" + scanner.next();
-                    break;
-            }
-            List<Map<String, String>> results = connection.execute(input);
+            List<Map<String, String>> results = connection.execute(scanner.nextLine());
             for (Map<String, String> result : results) {
                 System.out.println(result);
             }
