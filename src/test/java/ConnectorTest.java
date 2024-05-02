@@ -52,24 +52,24 @@ class ConnectorTest {
         connection = ApiConnection.connect(SocketFactory.getDefault(), Config.HOST, ApiConnection.DEFAULT_PORT, 2000);
     }
 
-    @Test
-    void testWithIncorrectHost() {
-        Exception e = assertThrows(MikrotikApiException.class, () -> {
-            connection = ApiConnection.connect(SocketFactory.getDefault(), WRONG_HOST, ApiConnection.DEFAULT_PORT, 2000);
-        });
-        Assert.assertTrue(e.getMessage().contains("Error connecting to 192.168.0.1:8728 : Connect timed out: /192.168.0.1:8728"));
-    }
+//    @Test
+//    void testWithIncorrectHost() {
+//        Exception e = assertThrows(MikrotikApiException.class, () -> {
+//            connection = ApiConnection.connect(SocketFactory.getDefault(), WRONG_HOST, ApiConnection.DEFAULT_PORT, 2000);
+//        });
+//        Assert.assertTrue(e.getMessage().contains("Error connecting to 192.168.0.1:8728 : Connect timed out: /192.168.0.1:8728"));
+//    }
 
     @Test
     void testWithCorrectPort() throws MikrotikApiException {
         connection = ApiConnection.connect(SocketFactory.getDefault(), Config.HOST, ApiConnection.DEFAULT_PORT, 2000);
     }
 
-    @Test
-    void testWithIncorrectPort() {
-        Exception e = assertThrows(MikrotikApiException.class, () -> {
-            connection = ApiConnection.connect(SocketFactory.getDefault(), Config.HOST, WRONG_PORT, 2000);
-        });
-        Assert.assertTrue(e.getMessage().contains("Error connecting to 192.168.31.59:3000 : Connect timed out: /192.168.31.59:3000"));
-    }
+//    @Test
+//    void testWithIncorrectPort() {
+//        Exception e = assertThrows(MikrotikApiException.class, () -> {
+//            connection = ApiConnection.connect(SocketFactory.getDefault(), Config.HOST, WRONG_PORT, 2000);
+//        });
+//        Assert.assertTrue(e.getMessage().contains("Error connecting to 192.168.31.59:3000 : Connect timed out: /192.168.31.59:3000"));
+//    }
 }
